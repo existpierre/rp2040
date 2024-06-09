@@ -16,18 +16,6 @@ index = 0
 random_letter = get_random_letter()
 current_letter = LETTER_LIST[0]
 
-def check_up_button_callback():
-    move_dot_up()
-
-def check_down_button_callback():
-    move_dot_down()
-
-def check_left_button_callback():
-    move_dot_left()
-
-def check_right_button_callback():
-    move_dot_right()
-
 def check_mode_callback():
     global text_displaying
     text_displaying = False
@@ -92,10 +80,10 @@ while True:
 
         time.sleep(0.15)
     elif (currentMode == BOARD_MODE.MOVE_DOT):
-        check_up_button(check_up_button_callback)
-        check_down_button(check_down_button_callback)
-        check_left_button(check_left_button_callback)
-        check_right_button(check_right_button_callback)
+        check_up_button(move_dot_up)
+        check_down_button(move_dot_down)
+        check_left_button(move_dot_left)
+        check_right_button(move_dot_right)
     elif (currentMode == BOARD_MODE.TEMPERATURE):
         check_down_button(show_data_callback)
         if (text_displaying == False):
@@ -112,4 +100,3 @@ while True:
         check_up_button(next_letter_callback)
         if (text_displaying == False):
             show_letter()
-
